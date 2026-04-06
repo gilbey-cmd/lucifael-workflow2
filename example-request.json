@@ -1,0 +1,647 @@
+{
+  "input": {
+    "workflow": {
+      "178": {
+        "inputs": {
+          "model_name": "4x-UltraSharp.pth"
+        },
+        "class_type": "UpscaleModelLoader",
+        "_meta": {
+          "title": "UpscaleModelLoader"
+        }
+      },
+      "279": {
+        "inputs": {
+          "value": 2,
+          "image": [
+            "475",
+            0
+          ],
+          "model": [
+            "306",
+            0
+          ],
+          "positive": [
+            "306",
+            2
+          ],
+          "negative": [
+            "306",
+            3
+          ],
+          "vae": [
+            "301",
+            2
+          ],
+          "upscale_model": [
+            "178",
+            0
+          ]
+        },
+        "class_type": "UltimateSDUpscale",
+        "_meta": {
+          "title": "UltimateSDUpscale"
+        }
+      },
+      "300": {
+        "inputs": {
+          "value": -1,
+          "sdxl_tuple": [
+            "362",
+            0
+          ],
+          "latent_image": [
+            "301",
+            1
+          ],
+          "optional_vae": [
+            "301",
+            2
+          ]
+        },
+        "class_type": "KSampler SDXL (Eff.)",
+        "_meta": {
+          "title": "KSampler SDXL (Eff.)"
+        }
+      },
+      "301": {
+        "inputs": {
+          "filename": "Xl\\PONYXL\\Pony (Creator)\\ponyDiffusionV6XL_v6StartWithThisOne.safetensors",
+          "lora_stack": [
+            "302",
+            0
+          ]
+        },
+        "class_type": "Eff. Loader SDXL",
+        "_meta": {
+          "title": "Eff. Loader SDXL"
+        }
+      },
+      "302": {
+        "inputs": {
+          "text": "simple"
+        },
+        "class_type": "LoRA Stacker",
+        "_meta": {
+          "title": "LoRA Stacker"
+        }
+      },
+      "306": {
+        "inputs": {
+          "sdxl_tuple": [
+            "300",
+            0
+          ]
+        },
+        "class_type": "Unpack SDXL Tuple",
+        "_meta": {
+          "title": "Unpack SDXL Tuple"
+        }
+      },
+      "313": {
+        "inputs": {
+          "value": 1.5,
+          "samples": [
+            "300",
+            1
+          ],
+          "upscaler": [
+            "315",
+            0
+          ]
+        },
+        "class_type": "IterativeLatentUpscale",
+        "_meta": {
+          "title": "IterativeLatentUpscale"
+        }
+      },
+      "314": {
+        "inputs": {
+          "samples": [
+            "313",
+            0
+          ],
+          "vae": [
+            "326",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "315": {
+        "inputs": {
+          "text": "nearest-exact",
+          "model": [
+            "306",
+            0
+          ],
+          "vae": [
+            "300",
+            2
+          ],
+          "positive": [
+            "306",
+            2
+          ],
+          "negative": [
+            "306",
+            3
+          ]
+        },
+        "class_type": "PixelKSampleUpscalerProvider",
+        "_meta": {
+          "title": "PixelKSampleUpscalerProvider"
+        }
+      },
+      "326": {
+        "inputs": {
+          "filename": "xlVAEC_f1.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "VAELoader"
+        }
+      },
+      "362": {
+        "inputs": {
+          "base_model": [
+            "363",
+            0
+          ],
+          "base_clip": [
+            "363",
+            1
+          ],
+          "base_positive": [
+            "536",
+            0
+          ],
+          "base_negative": [
+            "536",
+            1
+          ],
+          "refiner_model": [
+            "363",
+            4
+          ],
+          "refiner_clip": [
+            "363",
+            5
+          ],
+          "refiner_positive": [
+            "363",
+            6
+          ],
+          "refiner_negative": [
+            "363",
+            7
+          ]
+        },
+        "class_type": "Pack SDXL Tuple",
+        "_meta": {
+          "title": "Pack SDXL Tuple"
+        }
+      },
+      "363": {
+        "inputs": {
+          "sdxl_tuple": [
+            "301",
+            0
+          ]
+        },
+        "class_type": "Unpack SDXL Tuple",
+        "_meta": {
+          "title": "Unpack SDXL Tuple"
+        }
+      },
+      "404": {
+        "inputs": {
+          "image": "IncaseDemon.png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "LoadImage"
+        }
+      },
+      "405": {
+        "inputs": {
+          "value": 768,
+          "image": [
+            "404",
+            0
+          ]
+        },
+        "class_type": "ImageCrop",
+        "_meta": {
+          "title": "ImageCrop"
+        }
+      },
+      "406": {
+        "inputs": {
+          "images": [
+            "405",
+            0
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "PreviewImage"
+        }
+      },
+      "408": {
+        "inputs": {
+          "filename": "ip-adapter-faceid-plusv2_sdxl_lora.safetensors",
+          "model": [
+            "363",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "409": {
+        "inputs": {
+          "filename": "ip-adapter-faceid-plusv2_sdxl.bin"
+        },
+        "class_type": "IPAdapterModelLoader",
+        "_meta": {
+          "title": "IPAdapterModelLoader"
+        }
+      },
+      "410": {
+        "inputs": {
+          "filename": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors.safetensors"
+        },
+        "class_type": "CLIPVisionLoader",
+        "_meta": {
+          "title": "CLIPVisionLoader"
+        }
+      },
+      "417": {
+        "inputs": {
+          "filename": "ip-adapter-plus_sdxl_vit-h.safetensors"
+        },
+        "class_type": "IPAdapterModelLoader",
+        "_meta": {
+          "title": "IPAdapterModelLoader"
+        }
+      },
+      "428": {
+        "inputs": {
+          "value": 0.5,
+          "model": [
+            "408",
+            0
+          ],
+          "ipadapter": [
+            "409",
+            0
+          ],
+          "image": [
+            "405",
+            0
+          ],
+          "clip_vision": [
+            "410",
+            0
+          ],
+          "insightface": [
+            "431",
+            0
+          ]
+        },
+        "class_type": "IPAdapterFaceID",
+        "_meta": {
+          "title": "IPAdapterFaceID"
+        }
+      },
+      "430": {
+        "inputs": {
+          "value": 0.3,
+          "model": [
+            "428",
+            0
+          ],
+          "ipadapter": [
+            "417",
+            0
+          ],
+          "image": [
+            "405",
+            0
+          ],
+          "clip_vision": [
+            "410",
+            0
+          ]
+        },
+        "class_type": "IPAdapterAdvanced",
+        "_meta": {
+          "title": "IPAdapterAdvanced"
+        }
+      },
+      "431": {
+        "inputs": {
+          "text": "CUDA"
+        },
+        "class_type": "IPAdapterInsightFaceLoader",
+        "_meta": {
+          "title": "IPAdapterInsightFaceLoader"
+        }
+      },
+      "447": {
+        "inputs": {
+          "text": "4-%time-%basemodelname-%cfg-%steps-%sampler_name-%scheduler-%seed",
+          "images": [
+            "519",
+            0
+          ]
+        },
+        "class_type": "Image Saver",
+        "_meta": {
+          "title": "Image Saver"
+        }
+      },
+      "452": {
+        "inputs": {
+          "text": "3-%time-%basemodelname-%cfg-%steps-%sampler_name-%scheduler-%seed",
+          "images": [
+            "475",
+            0
+          ]
+        },
+        "class_type": "Image Saver",
+        "_meta": {
+          "title": "Image Saver"
+        }
+      },
+      "453": {
+        "inputs": {
+          "text": "2-%time-%basemodelname-%cfg-%steps-%sampler_name-%scheduler-%seed",
+          "images": [
+            "314",
+            0
+          ]
+        },
+        "class_type": "Image Saver",
+        "_meta": {
+          "title": "Image Saver"
+        }
+      },
+      "454": {
+        "inputs": {
+          "images": [
+            "300",
+            3
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "PreviewImage"
+        }
+      },
+      "455": {
+        "inputs": {
+          "images": [
+            "314",
+            0
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "PreviewImage"
+        }
+      },
+      "456": {
+        "inputs": {
+          "images": [
+            "475",
+            0
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "PreviewImage"
+        }
+      },
+      "457": {
+        "inputs": {
+          "images": [
+            "519",
+            0
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "PreviewImage"
+        }
+      },
+      "458": {
+        "inputs": {
+          "images": [
+            "279",
+            0
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "PreviewImage"
+        }
+      },
+      "459": {
+        "inputs": {
+          "images": [
+            "279",
+            0
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "PreviewImage"
+        }
+      },
+      "462": {
+        "inputs": {
+          "filename": "1.5\\Favorite\\revAnimated_v2Rebirth.safetensors"
+        },
+        "class_type": "Efficient Loader",
+        "_meta": {
+          "title": "Efficient Loader"
+        }
+      },
+      "465": {
+        "inputs": {
+          "filename": "sam_vit_b_01ec64.pth"
+        },
+        "class_type": "SAMLoader",
+        "_meta": {
+          "title": "SAMLoader"
+        }
+      },
+      "475": {
+        "inputs": {
+          "value": 768,
+          "image": [
+            "314",
+            0
+          ],
+          "model": [
+            "462",
+            0
+          ],
+          "clip": [
+            "462",
+            5
+          ],
+          "vae": [
+            "462",
+            4
+          ],
+          "positive": [
+            "462",
+            1
+          ],
+          "negative": [
+            "462",
+            2
+          ],
+          "bbox_detector": [
+            "478",
+            0
+          ],
+          "sam_model_opt": [
+            "465",
+            0
+          ]
+        },
+        "class_type": "FaceDetailer",
+        "_meta": {
+          "title": "FaceDetailer"
+        }
+      },
+      "478": {
+        "inputs": {
+          "filename": "bbox/face_yolov8m.pt"
+        },
+        "class_type": "UltralyticsDetectorProvider",
+        "_meta": {
+          "title": "UltralyticsDetectorProvider"
+        }
+      },
+      "518": {
+        "inputs": {
+          "filename": "sam_vit_b_01ec64.pth"
+        },
+        "class_type": "SAMLoader",
+        "_meta": {
+          "title": "SAMLoader"
+        }
+      },
+      "519": {
+        "inputs": {
+          "value": 768,
+          "image": [
+            "279",
+            0
+          ],
+          "model": [
+            "462",
+            0
+          ],
+          "clip": [
+            "462",
+            5
+          ],
+          "vae": [
+            "462",
+            4
+          ],
+          "positive": [
+            "462",
+            1
+          ],
+          "negative": [
+            "462",
+            2
+          ],
+          "bbox_detector": [
+            "520",
+            0
+          ],
+          "sam_model_opt": [
+            "518",
+            0
+          ]
+        },
+        "class_type": "FaceDetailer",
+        "_meta": {
+          "title": "FaceDetailer"
+        }
+      },
+      "520": {
+        "inputs": {
+          "filename": "bbox/face_yolov8m.pt"
+        },
+        "class_type": "UltralyticsDetectorProvider",
+        "_meta": {
+          "title": "UltralyticsDetectorProvider"
+        }
+      },
+      "535": {
+        "inputs": {
+          "image": "4 (1).PNG"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "LoadImage"
+        }
+      },
+      "536": {
+        "inputs": {
+          "positive": [
+            "363",
+            2
+          ],
+          "negative": [
+            "363",
+            3
+          ],
+          "cnet_stack": [
+            "539",
+            0
+          ]
+        },
+        "class_type": "Apply ControlNet Stack",
+        "_meta": {
+          "title": "Apply ControlNet Stack"
+        }
+      },
+      "539": {
+        "inputs": {
+          "text": "On",
+          "image_1": [
+            "535",
+            0
+          ],
+          "image_2": [
+            "535",
+            0
+          ],
+          "image_3": [
+            "535",
+            0
+          ]
+        },
+        "class_type": "CR Multi-ControlNet Stack",
+        "_meta": {
+          "title": "CR Multi-ControlNet Stack"
+        }
+      }
+    }
+  }
+}
